@@ -15,7 +15,7 @@ const {describe,it, expect} = require('../modules/custom_test')
 describe ('Addition function test', () =>{
     it('should add two numbers', ()=> {
         const twoSum = addtion(1, 2)
-        expect(twoSum).toBe(3)
+        expect(twoSum).toEqual(3)
     })
     // it('should add three numbers', () => {
     //     const threeSum = addtion(3, 7, 10)

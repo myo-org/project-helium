@@ -77,10 +77,10 @@ module.exports = {
         print(test_passed)
     },
     expect : (source) => {
-        const toBe = (expected) => {
+        const toEqual = (expected) => {
             test_passed = (source == expected)? true : false
         }
-        return {toBe}
+        return {toEqual}
     }
 
 }

@@ -1,0 +1,30 @@
+{
+  "name": "calculator_app",
+  "version": "1.0.0",
+  "description": "a simple react app with TDD",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "test": "test "
+  },
+  "scripts": {
+    "test": "jest --watchAll --verbose --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myo-org/project-helium.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/myo-org/project-helium/issues"
+  },
+  "homepage": "https://github.com/myo-org/project-helium#readme",
+  "dependencies": {
+    "jest": "^27.0.6"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.24"
+  }
+}
