@@ -37,26 +37,50 @@ const COLOR = {
     }
 }
 
-const print = (print_me,color_primary, color_secondary = null) => {
-    console.log(COLOR.fg.blue, print_me, COLOR.reset)
+
+
+const print = (print_me, color_primary = null, color_secondary = null) => {
+    console.log(color_primary || '', print_me, COLOR.reset)
 }
 
-const unit_test = (description, callback) => {
-    // print out in style
-    print(description, COLOR.fg.blue)
-    callback()
-
-}
-const expect = function (source) {
-    let to_print = null
-    const toBe = (expected) => {
-        to_print = (source == expected)? true : false
-        return print(to_print)
-    }
-    return {toBe}
-}
+let test_passed = false
 
 module.exports = {
-    unit_test,
-    expect
+    describe : (description, callback) => {
+        // print out in style
+        print(description, COLOR.fg.blue)
+        callback()
+    },
+    test : (description, callback) => {
+        // print out in style
+        let test_passed = null;
+        test_passed = callback()
+        test_completed = true
+        while(!test_completed){
+            console.log(`......\n`)
+        }
+        print(description, test_passed ? COLOR.fg.green : COLOR.fg.red)
+        print(test_passed)
+    },
+    it : async (description, callback) => {
+        // print out in style
+        let test_passed = null;
+        console.log('before:',test_passed)
+        console.log(callback)
+        await callback()
+        console.log('after:',test_passed)
+        test_completed = true
+        while(!test_completed){
+            console.log(`......\n`)
+        }
+        print(description, test_passed ? COLOR.fg.green : COLOR.fg.red)
+        print(test_passed)
+    },
+    expect : (source) => {
+        const toBe = (expected) => {
+            test_passed = (source == expected)? true : false
+        }
+        return {toBe}
+    }
+
 }
