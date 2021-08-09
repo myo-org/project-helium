@@ -1,5 +1,5 @@
-const {sum} = require('../functions/app')
-
+// const {sum} = require('../../functions/index')
+import {sum} from '../../functions/index'
 describe('Addition Test', ()=> {
     it('should add two numbers', ()=> {
         const twoSum = sum(1,2)
@@ -13,5 +13,10 @@ describe('Addition Test', ()=> {
         const multipleSum = sum (30,40,1231,4423,6343)
         expect(multipleSum).toEqual(12067)
     })
+    it.todo('should add two negative numbers')
+    it.todo('should add decimal numbers of 5 precisions')
     it.todo('Should handle complex inputs')
+})
+describe('Subtraction Test', ()=> {
+    it.todo('should subtract two numbers')
 })
